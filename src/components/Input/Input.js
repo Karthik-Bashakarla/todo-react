@@ -7,16 +7,17 @@ import ADD_TASK from "../../redux/actions";
 const Input = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
-  const text = useSelector((state) => state.addTaskReducer);
+  const text = useSelector((state) => state.addTaskReducer.tasks);
+
   const onChange = (e) => {
     setInput(e.target.value);
   };
 
   const addTask2 = (e) => {
     e.preventDefault();
-    dispatch({ type: ADD_TASK, payload: e.target[0].value });
-    // console.log(text);
-    e.target[0].value = "";
+    setInput(e.target[0].value);
+    dispatch({ type: ADD_TASK, payload: input });
+    setInput("");
   };
 
   return (
@@ -32,7 +33,6 @@ const Input = () => {
         </InputContainer>
         <AddButton />
       </Form>
-      <h1>{text}</h1>
     </>
   );
 };

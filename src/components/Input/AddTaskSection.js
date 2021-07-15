@@ -16,4 +16,5 @@ export default AddTaskSection;
 const InputContainer = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 45px;
 `;
